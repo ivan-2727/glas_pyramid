@@ -1,2 +1,2 @@
-# glass_tower
-Interesting task (binary search + DP) in several languages 
+Glass pyramid
+- from csharp folder, run `dotnet run`  
