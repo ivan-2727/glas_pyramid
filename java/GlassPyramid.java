@@ -4,7 +4,7 @@ public class GlassPyramid {
 
     public static Double DynProg(int r, int g, Double start) {
         double[][] dp = new double[r][];
-		for (int i = 0; i < r; i++) dp[i] = new double[i+1];
+	for (int i = 0; i < r; i++) dp[i] = new double[i+1];
         dp[0][0] = start; 
         for (int i = 1; i < r; i++) {
             dp[i][0] = Math.max(dp[i-1][0]-1, 0)/2;
@@ -52,7 +52,7 @@ public class GlassPyramid {
             return;
         }
         System.out.print("Tid = ");
-		System.out.printf("%.6f\n", BinarySearch(r, g, 1.0, 1e-6));
+	System.out.printf("%.6f\n", BinarySearch(r, g, 1.0, 1e-6));
     }
 }
 
