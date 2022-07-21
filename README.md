@@ -1,2 +1,2 @@
-Glass pyramid
-- from csharp folder, run `dotnet run`  
+### Glass pyramid
+- from csharp folder, `dotnet run`  
