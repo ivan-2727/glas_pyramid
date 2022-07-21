@@ -2,7 +2,7 @@ public class GlassPyramid {
 
     public static double DynProg(int r, int g, double start) {
         double[][] dp = new double[r][];
-		for (int i = 0; i < r; i++) dp[i] = new double[i+1];
+	for (int i = 0; i < r; i++) dp[i] = new double[i+1];
         dp[0][0] = start; 
         for (int i = 1; i < r; i++) {
             dp[i][0] = Math.Max(dp[i-1][0]-1, 0)/2;
