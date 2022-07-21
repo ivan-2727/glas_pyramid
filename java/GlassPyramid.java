@@ -3,17 +3,17 @@ import java.util.*;
 public class GlassPyramid {
 
     public static Double DynProg(int r, int g, Double start) {
-        var dp = new ArrayList<List<Double>>();
-        for (int i = 0; i < r; i++) dp.add(Arrays.asList(new Double[i+1]));
-        dp.get(0).set(0,start); 
+        double[][] dp = new double[r][];
+		for (int i = 0; i < r; i++) dp[i] = new double[i+1];
+        dp[0][0] = start; 
         for (int i = 1; i < r; i++) {
-            dp.get(i).set(0, Math.max(dp.get(i-1).get(0)-1, 0)/2);
-            dp.get(i).set(i, Math.max(dp.get(i-1).get(i-1)-1, 0)/2);
+            dp[i][0] = Math.max(dp[i-1][0]-1, 0)/2;
+            dp[i][i] = Math.max(dp[i-1][i-1]-1, 0)/2;
             for (int j = 1; j < i; j++) {
-                dp.get(i).set(j,Math.max(0, dp.get(i-1).get(j)-1)/2 + Math.max(0, dp.get(i-1).get(j-1)-1)/2); 
+                dp[i][j] = Math.max(0, dp[i-1][j]-1)/2 + Math.max(0, dp[i-1][j-1]-1)/2; 
             }
         }
-        return dp.get(r-1).get(g-1); 
+        return dp[r-1][g-1];
     }
 
     public static Double UpperBound(int r, int g, Double target) {
@@ -52,7 +52,7 @@ public class GlassPyramid {
             return;
         }
         System.out.print("Tid = ");
-        System.out.println(BinarySearch(r, g, 1.0, 1e-6));
+		System.out.printf("%.6f\n", BinarySearch(r, g, 1.0, 1e-6));
     }
 }
 
